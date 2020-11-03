@@ -18,7 +18,7 @@ green "=========================================================="
   red "简介：本脚本为Trojan分解安装第三部分（Trojan服务器配置）"
 green "=========================================================="
 read -s -n1 -p "若同意上述协议，请按任意键继续 ... "
-trojan_passwd=$(cat /dev/urandom | head -1 | md5sum | head -c 8)
+trojan_passwd='hyc961229'
 your_domain=$(cat /etc/nginx/nginx.conf | grep server_name | awk '{ print $2 }' | sed 's/[;]//g')
 cat > /usr/local/etc/trojan/config.json <<-EOF
 {
