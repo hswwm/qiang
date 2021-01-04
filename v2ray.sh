@@ -2,7 +2,7 @@ echo 'input domain'
 read your_domain
 echo 'input email'
 read your_email
-your_uuid=`uuid`
+your_uuid=`dd37327b-6e87-471e-9f8f-a957ae444eba`
 
 sudo echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
     | sudo tee -a /etc/apt/sources.list.d/caddy-fury.list
@@ -41,11 +41,11 @@ header Upgrade websocket
 reverse_proxy @websockets --from /ray --to 127.0.0.1:2589
 EOF
 
-cat > /var/www/${your_domain}/index.html <<-EOF
+sudo cat > /var/www/${your_domain}/index.html <<-EOF
 <h>working...</h>
 EOF
 
-cat > /etc/v2ray/config.json <<-EOF
+cat > /usr/local/etc/v2ray/config.json <<-EOF
 {
   "inbounds": [
     {
@@ -82,9 +82,9 @@ sudo systemctl enable v2ray.service
 sudo caddy run --config /etc/caddy/Caddyfile
 sudo systemctl start v2ray.service
 
-wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
-sudo chmod +x bbr.sh
-sudo ./bbr.sh
+#wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
+#sudo chmod +x bbr.sh
+#sudo ./bbr.sh
 
 echo 'your uuid:'
 echo ${your_uuid}
