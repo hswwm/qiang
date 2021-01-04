@@ -8,7 +8,7 @@ sudo echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
     | sudo tee -a /etc/apt/sources.list.d/caddy-fury.list
 sudo apt update
 sudo apt install caddy 
-curl -L -s https://install.direct/go.sh -o go.sh
+curl -L -s https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh -o go.sh
 sudo chmod +x ./go.sh
 sudo ./go.sh 
 
